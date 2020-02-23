@@ -47,6 +47,7 @@ intellij {
         project.properties["IdeVersion"].toString()
     }
     setPlugins(project.properties["pythonPluginVersion"].toString())
+    type = project.properties["IdeType"].toString()
 }
 
 fun readChangeNotes(pathname: String): String {
@@ -82,5 +83,4 @@ fun readChangeNotes(pathname: String): String {
 tasks.withType<PatchPluginXmlTask> {
     setPluginDescription(file("Description.html").readText())
     setChangeNotes(readChangeNotes("ChangeNotes.md"))
-    setSinceBuild(project.properties["IdeVersion"].toString())
 }
