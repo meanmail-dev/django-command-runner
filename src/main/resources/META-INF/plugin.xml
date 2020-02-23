@@ -1,0 +1,13 @@
+<idea-plugin>
+    <id>ru.meanmail.plugin.django_command_runner</id>
+    <name>Django command runner</name>
+    <version>SNAPSHOT</version>
+    <idea-version since-build="173"/>
+    <vendor email="plugin@meanmail.ru" url="https://meanmail.dev">meanmail</vendor>
+    <description></description>
+    <change-notes></change-notes>
+
+    <depends>com.intellij.modules.lang</depends>
+    <depends optional="true" config-file="python-config.xml">com.intellij.modules.python</depends>
+
+</idea-plugin>
