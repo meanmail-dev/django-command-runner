@@ -40,7 +40,9 @@ abstract class Action(private val command: String,
         configuration.scriptName = djangoFacet?.configuration?.manageFilePath ?: "manage.py"
         val module = djangoFacet?.module ?: ModuleUtil.findModuleForFile(file)
         configuration.configurationModule.module = module
-        val workingDirectory = module?.moduleFile?.parent?.canonicalPath ?: ""
+        val workingDirectory = djangoFacet?.configuration?.projectRootPath
+                ?: module?.moduleFile?.parent?.canonicalPath
+                ?: file.project.basePath
         configuration.baseParams.workingDirectory = workingDirectory
         if (command !in configuration.scriptParameters) {
             configuration.scriptParameters += command
