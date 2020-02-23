@@ -1,4 +1,4 @@
-# Requirements plugin
+# Django command runner plugin
 
 https://meanmail.dev
 

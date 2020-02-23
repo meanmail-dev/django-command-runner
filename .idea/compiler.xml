@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="requirements.main" target="1.8" />
-      <module name="requirements.test" target="1.8" />
+      <module name="django-command-runner.main" target="1.8" />
+      <module name="django-command-runner.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
