@@ -8,6 +8,6 @@
     <change-notes></change-notes>
 
     <depends>com.intellij.modules.lang</depends>
-    <depends config-file="python-config.xml">pythonid</depends>
+    <depends optional="true" config-file="python-config.xml">com.intellij.modules.python</depends>
 
 </idea-plugin>
