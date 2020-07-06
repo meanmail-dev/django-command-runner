@@ -1,5 +1,9 @@
 # Django command runner plugin
 
+![](https://plugins.jetbrains.com/files/13834/screenshot_22555.png)
+
+![](https://plugins.jetbrains.com/files/13834/screenshot_22556.png)
+
 https://meanmail.dev
 
 Your ratings and feedback are very important.
