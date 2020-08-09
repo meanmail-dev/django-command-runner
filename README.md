@@ -1,4 +1,5 @@
 # Django command runner plugin
+![JetBrains IntelliJ Plugins](https://img.shields.io/jetbrains/plugin/r/stars/13834?label=JetBrans%20Marketplace)
 
 ![](https://plugins.jetbrains.com/files/13834/screenshot_22555.png)
 
