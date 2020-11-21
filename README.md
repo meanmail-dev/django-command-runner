@@ -13,7 +13,7 @@ The feature will appear the faster the more people request it.
 
 ## Supported versions of Intellij:
 
-All product with python — 2019.1 — 2020.1
+All product with python — 2019.3 — 2020.3(eap)
 
 ## Features
 
