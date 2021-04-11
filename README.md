@@ -1,8 +1,7 @@
 # Django command runner plugin
-![JetBrains IntelliJ Plugins](https://img.shields.io/jetbrains/plugin/r/stars/13834?label=JetBrans%20Marketplace)
-![JetBrains IntelliJ plugins](https://img.shields.io/jetbrains/plugin/d/13834)
-![Twitter Follow](https://img.shields.io/twitter/follow/meanmaildev?style=plastic)
-
+[![JetBrains IntelliJ Plugins](https://img.shields.io/jetbrains/plugin/r/stars/13834?label=JetBrans%20Marketplace)](https://plugins.jetbrains.com/plugin/13834)
+[![JetBrains IntelliJ plugins](https://img.shields.io/jetbrains/plugin/d/13834)](https://plugins.jetbrains.com/plugin/13834)
+[![Twitter Follow](https://img.shields.io/twitter/follow/meanmaildev?style=plastic)](https://twitter.com/meanmaildev)
 ![](https://plugins.jetbrains.com/files/13834/screenshot_22555.png)
 
 ![](https://plugins.jetbrains.com/files/13834/screenshot_22556.png)
