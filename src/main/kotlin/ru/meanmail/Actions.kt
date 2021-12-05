@@ -13,7 +13,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.module.ModuleUtil
 import com.intellij.openapi.util.text.TextWithMnemonic.fromPlainText
-import com.jetbrains.python.profiler.ProfilerExecutor
 import com.jetbrains.python.run.PythonConfigurationType
 import com.jetbrains.python.run.PythonRunConfiguration
 import javax.swing.Icon
@@ -104,7 +103,7 @@ class ProfileAction(command: String) :
 
     override fun getExecutor(): Executor {
         val executor = ExecutorRegistry.getInstance()
-                .getExecutorById(ProfilerExecutor.PROFILE_EXECUTOR_ID)
+                .getExecutorById("Profiler")
 
         return executor ?: DefaultRunExecutor.getRunExecutorInstance()
     }
