@@ -18,10 +18,11 @@ import com.jetbrains.python.run.PythonRunConfiguration
 import javax.swing.Icon
 
 
-@Suppress("MissingRecentApi")
-abstract class Action(private val command: String,
-                      title: String, description: String,
-                      icon: Icon) : AnAction(title, description, icon) {
+abstract class Action(
+    private val command: String,
+    title: String, description: String,
+    icon: Icon
+) : AnAction(title, description, icon) {
 
     override fun actionPerformed(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE) ?: return
@@ -31,8 +32,10 @@ abstract class Action(private val command: String,
         var config = runManager.findConfigurationByName(command)
 
         if (config == null) {
-            config = runManager.createConfiguration(command,
-                    PythonConfigurationType::class.java)
+            config = runManager.createConfiguration(
+                command,
+                PythonConfigurationType::class.java
+            )
         }
 
         val configuration = config.configuration as PythonRunConfiguration
@@ -40,8 +43,8 @@ abstract class Action(private val command: String,
         val module = djangoFacet?.module ?: ModuleUtil.findModuleForFile(file)
         configuration.configurationModule.module = module
         val workingDirectory = djangoFacet?.configuration?.projectRootPath
-                ?: module?.moduleFile?.parent?.canonicalPath
-                ?: file.project.basePath
+            ?: module?.moduleFile?.parent?.canonicalPath
+            ?: file.project.basePath
         configuration.baseParams.workingDirectory = workingDirectory
         if (command !in configuration.scriptParameters) {
             configuration.scriptParameters += command
@@ -59,10 +62,12 @@ abstract class Action(private val command: String,
 }
 
 class RunAction(command: String) :
-        Action(command,
-                "Run '${fromPlainText(command)}'",
-                "Run '${fromPlainText(command)}'",
-                AllIcons.Actions.Execute) {
+    Action(
+        command,
+        "Run '${fromPlainText(command)}'",
+        "Run '${fromPlainText(command)}'",
+        AllIcons.Actions.Execute
+    ) {
 
     override fun getExecutor(): Executor {
         return DefaultRunExecutor.getRunExecutorInstance()
@@ -71,10 +76,12 @@ class RunAction(command: String) :
 
 
 class DebugAction(command: String) :
-        Action(command,
-                "Debug '${fromPlainText(command)}'",
-                "Debug '${fromPlainText(command)}'",
-                AllIcons.Actions.StartDebugger) {
+    Action(
+        command,
+        "Debug '${fromPlainText(command)}'",
+        "Debug '${fromPlainText(command)}'",
+        AllIcons.Actions.StartDebugger
+    ) {
 
     override fun getExecutor(): Executor {
         return DefaultDebugExecutor.getDebugExecutorInstance()
@@ -82,28 +89,32 @@ class DebugAction(command: String) :
 }
 
 class RunWithCoverageAction(command: String) :
-        Action(command,
-                "Run '${fromPlainText(command)}' with Coverage",
-                "Run '${fromPlainText(command)}' with Coverage",
-                AllIcons.General.RunWithCoverage) {
+    Action(
+        command,
+        "Run '${fromPlainText(command)}' with Coverage",
+        "Run '${fromPlainText(command)}' with Coverage",
+        AllIcons.General.RunWithCoverage
+    ) {
 
     override fun getExecutor(): Executor {
         val executor = ExecutorRegistry.getInstance()
-                .getExecutorById(CoverageExecutor.EXECUTOR_ID)
+            .getExecutorById(CoverageExecutor.EXECUTOR_ID)
 
         return executor ?: DefaultRunExecutor.getRunExecutorInstance()
     }
 }
 
 class ProfileAction(command: String) :
-        Action(command,
-                "Profile '${fromPlainText(command)}'",
-                "Profile '${fromPlainText(command)}'",
-                AllIcons.Actions.Profile) {
+    Action(
+        command,
+        "Profile '${fromPlainText(command)}'",
+        "Profile '${fromPlainText(command)}'",
+        AllIcons.Actions.Profile
+    ) {
 
     override fun getExecutor(): Executor {
         val executor = ExecutorRegistry.getInstance()
-                .getExecutorById("Profiler")
+            .getExecutorById("Profiler")
 
         return executor ?: DefaultRunExecutor.getRunExecutorInstance()
     }

@@ -8,6 +8,10 @@
     <change-notes></change-notes>
 
     <depends>com.intellij.modules.lang</depends>
-    <depends optional="true" config-file="python-config.xml">com.intellij.modules.python</depends>
-
+    <depends>com.intellij.modules.python</depends>
+    <depends>com.intellij.python.django</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <runLineMarkerContributor language="Python"
+                                  implementationClass="ru.meanmail.CommandLineMarkerProvider"/>
+    </extensions>
 </idea-plugin>

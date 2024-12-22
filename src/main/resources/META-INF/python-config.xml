@@ -1,6 +1,0 @@
-<idea-plugin>
-    <extensions defaultExtensionNs="com.intellij">
-        <runLineMarkerContributor language="Python"
-                                  implementationClass="ru.meanmail.CommandLineMarkerProvider"/>
-    </extensions>
-</idea-plugin>

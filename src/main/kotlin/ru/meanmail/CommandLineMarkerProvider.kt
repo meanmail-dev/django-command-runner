@@ -11,6 +11,13 @@ import com.jetbrains.python.psi.PyReferenceExpression
 
 class CommandLineMarkerProvider : RunLineMarkerContributor() {
 
+    companion object {
+        val expectedSuperclasses = listOf(
+            "django.core.management.BaseCommand",
+            "django.core.management.base.BaseCommand"
+        )
+    }
+
     private fun isManagementCommand(element: PyClass): Boolean {
         val superclasses = element.superClassExpressions
         if (superclasses.isEmpty()) {
@@ -18,7 +25,7 @@ class CommandLineMarkerProvider : RunLineMarkerContributor() {
         }
 
         val baseCommand = superclasses.filterIsInstance<PyReferenceExpression>()
-                .firstOrNull { it.name == "BaseCommand" }
+            .firstOrNull { it.name == "BaseCommand" }
         if (baseCommand === null) {
             return false
         }
@@ -47,12 +54,6 @@ class CommandLineMarkerProvider : RunLineMarkerContributor() {
         return false
     }
 
-    companion object {
-        val expectedSuperclasses = listOf(
-                "django.core.management.BaseCommand",
-                "django.core.management.base.BaseCommand"
-        )
-    }
 
     override fun getInfo(element: PsiElement): Info? {
         if (element !is PyClass) {
@@ -65,11 +66,14 @@ class CommandLineMarkerProvider : RunLineMarkerContributor() {
 
         val command = element.containingFile.virtualFile.nameWithoutExtension
 
-        return Info(AllIcons.Actions.Execute, null,
+        return Info(
+            AllIcons.Actions.Execute,
+            arrayOf(
                 RunAction(command),
                 DebugAction(command),
                 RunWithCoverageAction(command),
                 ProfileAction(command)
+            )
         )
     }
 

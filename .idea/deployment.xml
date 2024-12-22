@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="db7">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="dev.hyperskill.org">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="hyperskill.org">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="jupyterhub.int.hyperskill.org">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="superset.int.hyperskill.org">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/src/main" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
