@@ -12,6 +12,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
 import com.intellij.openapi.module.ModuleUtil
+import com.intellij.openapi.project.rootManager
 import com.intellij.openapi.util.text.TextWithMnemonic.fromPlainText
 import com.jetbrains.python.run.PythonConfigurationType
 import com.jetbrains.python.run.PythonRunConfiguration
@@ -43,7 +44,7 @@ abstract class Action(
         val module = djangoFacet?.module ?: ModuleUtil.findModuleForFile(file)
         configuration.configurationModule.module = module
         val workingDirectory = djangoFacet?.configuration?.projectRootPath
-            ?: module?.moduleFile?.parent?.canonicalPath
+            ?: module?.rootManager?.sourceRoots?.firstOrNull()?.canonicalPath
             ?: file.project.basePath
         configuration.baseParams.workingDirectory = workingDirectory
         if (command !in configuration.scriptParameters) {
