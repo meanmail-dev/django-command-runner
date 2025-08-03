@@ -1,4 +1,5 @@
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 fun config(name: String) = project.findProperty(name).toString()
@@ -26,13 +27,15 @@ dependencies {
 
     intellijPlatform {
         create(config("platformType"), config("platformVersion"))
-        plugins(providers.gradleProperty("plugins").map { it.split(',') })
+        val plugins = providers.gradleProperty("plugins").map { it.split(',') }
+        if (plugins.isPresent && plugins.get().isNotEmpty()) {
+            compatiblePlugins()
+        }
         val platformBundledPlugins = providers.gradleProperty("platformBundledPlugins").map { it.split(',') }
         if (platformBundledPlugins.isPresent && platformBundledPlugins.get().isNotEmpty()) {
             bundledPlugins(platformBundledPlugins)
         }
 
-        instrumentationTools()
         pluginVerifier()
         zipSigner()
         testFramework(TestFrameworkType.Platform)
@@ -46,6 +49,12 @@ intellijPlatform {
         ideaVersion {
             sinceBuild.set(config("platformSinceBuild"))
         }
+        productDescriptor {
+            code = "PDJANGOCOMMANDR"
+            releaseDate = "20250803"
+            releaseVersion = "202510"
+            optional = true
+        }
     }
 
     buildSearchableOptions = false
@@ -57,7 +66,7 @@ intellijPlatform {
     publishing {
         try {
             token.set(file("token.txt").readLines()[0])
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             println("No token.txt found")
         }
         channels.set(listOf(config("publishChannel")))
@@ -71,7 +80,7 @@ tasks {
             targetCompatibility = it
         }
         withType<KotlinCompile> {
-            kotlinOptions.jvmTarget = it
+            compilerOptions.jvmTarget.set(JvmTarget.fromTarget(it))
         }
     }
 

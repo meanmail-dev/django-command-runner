@@ -1,4 +1,4 @@
-package ru.meanmail
+package dev.meanmail
 
 
 import com.intellij.execution.lineMarker.RunLineMarkerContributor
@@ -71,7 +71,6 @@ class CommandLineMarkerProvider : RunLineMarkerContributor() {
             arrayOf(
                 RunAction(command),
                 DebugAction(command),
-                RunWithCoverageAction(command),
                 ProfileAction(command)
             )
         )

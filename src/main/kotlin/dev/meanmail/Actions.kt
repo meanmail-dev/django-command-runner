@@ -1,6 +1,5 @@
-package ru.meanmail
+package dev.meanmail
 
-import com.intellij.coverage.CoverageExecutor
 import com.intellij.execution.Executor
 import com.intellij.execution.ExecutorRegistry
 import com.intellij.execution.ProgramRunnerUtil
@@ -27,7 +26,7 @@ abstract class Action(
 
     override fun actionPerformed(e: AnActionEvent) {
         val file = e.getData(CommonDataKeys.PSI_FILE) ?: return
-        val djangoFacet = findDjangoFacet(file)
+        val djangoInfo = findDjangoFacet(file)
 
         val runManager = RunManager.getInstance(file.project)
         var config = runManager.findConfigurationByName(command)
@@ -40,10 +39,10 @@ abstract class Action(
         }
 
         val configuration = config.configuration as PythonRunConfiguration
-        configuration.scriptName = djangoFacet?.configuration?.manageFilePath ?: "manage.py"
-        val module = djangoFacet?.module ?: ModuleUtil.findModuleForFile(file)
+        configuration.scriptName = djangoInfo?.manageFilePath ?: "manage.py"
+        val module = djangoInfo?.module ?: ModuleUtil.findModuleForFile(file)
         configuration.configurationModule.module = module
-        val workingDirectory = djangoFacet?.configuration?.projectRootPath
+        val workingDirectory = djangoInfo?.projectRootPath
             ?: module?.rootManager?.sourceRoots?.firstOrNull()?.canonicalPath
             ?: file.project.basePath
         configuration.baseParams.workingDirectory = workingDirectory
@@ -86,22 +85,6 @@ class DebugAction(command: String) :
 
     override fun getExecutor(): Executor {
         return DefaultDebugExecutor.getDebugExecutorInstance()
-    }
-}
-
-class RunWithCoverageAction(command: String) :
-    Action(
-        command,
-        "Run '${fromPlainText(command)}' with Coverage",
-        "Run '${fromPlainText(command)}' with Coverage",
-        AllIcons.General.RunWithCoverage
-    ) {
-
-    override fun getExecutor(): Executor {
-        val executor = ExecutorRegistry.getInstance()
-            .getExecutorById(CoverageExecutor.EXECUTOR_ID)
-
-        return executor ?: DefaultRunExecutor.getRunExecutorInstance()
     }
 }
 
