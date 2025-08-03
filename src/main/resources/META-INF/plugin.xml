@@ -4,8 +4,42 @@
     <version>SNAPSHOT</version>
     <idea-version since-build="173"/>
     <vendor email="plugin@meanmail.ru" url="https://meanmail.dev">meanmail</vendor>
-    <description></description>
-    <change-notes></change-notes>
+    <description><![CDATA[<h4>Features</h4>
+
+<ul>
+    <li>Run django management command</li>
+</ul>
+
+<h4>More info</h4>
+<ul>
+    <li><a href="https://meanmail.dev">
+        meanmail.dev
+    </a></li>
+    <li><a href="https://github.com/meanmail/django-command-runner">
+        GitHub
+    </a></li>
+</ul>
+
+Your ratings and feedback are very important. The feature will appear the faster the more people request it.
+]]></description>
+    <change-notes><![CDATA[<h3>2024.1 (December, 22, 2024)</h3>
+
+<ul>
+    <li>Update build</li>
+</ul>
+
+<h3>2022.1 (October, 16, 2021)</h3>
+
+<ul>
+    <li>Update build</li>
+</ul>
+
+<h3>2020.1 (February, 23, 2020)</h3>
+
+<ul>
+    <li>First release</li>
+</ul>
+]]></change-notes>
 
     <depends>com.intellij.modules.lang</depends>
     <depends>com.intellij.modules.python</depends>
