@@ -52,7 +52,7 @@ intellijPlatform {
         productDescriptor {
             code = "PDJANGOCOMMANDR"
             releaseDate = "20250803"
-            releaseVersion = "202510"
+            releaseVersion = "20251"
             optional = true
         }
     }
