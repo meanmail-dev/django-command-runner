@@ -1,11 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" height="40px"
-     version="1.1" width="40px" style="overflow: hidden; ">
+<svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 40 40">
+    <!-- Modern Django icon with terminal integration -->
+    <defs>
+        <linearGradient id="djangoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0C4B33;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#092E20;stop-opacity:1"/>
+        </linearGradient>
+    </defs>
 
-    <text x="21" y="23"
-          fill="black"
-          text-anchor="middle"
-          alignment-baseline="central">
-        m
-    </text>
+    <!-- Background with gradient -->
+    <rect x="4" y="4" width="32" height="32" rx="8" ry="8" fill="url(#djangoGradient)"/>
 
+    <!-- Django logo - simplified and modern (larger and centered) -->
+    <path d="M12,10 L12,23 L18,23 C22,23 25,20 25,16.5 C25,13 22,10 18,10 Z"
+          fill="white" stroke="none"/>
+    <path d="M14,12 L18,12 C20.5,12 23,13.5 23,16.5 C23,19.5 20.5,21 18,21 L14,21 Z"
+          fill="url(#djangoGradient)" stroke="none"/>
+
+    <!-- Command prompt symbol -->
+    <path d="M13,28 L15,30 L13,32" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"
+          stroke-linejoin="round"/>
+    <line x1="17" y1="31" x2="21" y2="31" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
 </svg>
